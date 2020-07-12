@@ -8,15 +8,18 @@ import { SafeAreaView, StyleSheet } from 'react-native'
 // import Titulo from './components/Titulo'
 // import Botao from './components/Botao'
 // import Contator from './components/Contador'
-// import Pai from './components/direta/Pai'
-import Pai from './components/indireta/Pai'
+// import PaiDireta from './components/direta/Pai'
+// import PaiIndireta from './components/indireta/Pai'
+import ContadorV2 from './components/contador/ContadorV2'
 
 export default function App() {
+
     return (
         <SafeAreaView style={style.App}>
-            <Pai />
+            <ContadorV2 />
 
-            {/* <Pai />
+            {/* <PaiIndireta />
+            <PaiDireta />
             <Contator inicial={10} />
             <Botao />
             <Titulo

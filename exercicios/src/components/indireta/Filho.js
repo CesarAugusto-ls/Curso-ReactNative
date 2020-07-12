@@ -4,7 +4,7 @@ import { Button } from 'react-native';
 const Filho = (props) => {
 
     function gerarNumero(min, max) {
-        return Math.floor(Math.random() * (props.max + 1) + props.min);
+        return Math.floor(Math.random() * (max + 1) + min);
     }
 
     return (
