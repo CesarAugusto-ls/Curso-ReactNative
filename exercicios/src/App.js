@@ -10,15 +10,17 @@ import { SafeAreaView, StyleSheet } from 'react-native'
 // import Contator from './components/Contador'
 // import PaiDireta from './components/direta/Pai'
 // import PaiIndireta from './components/indireta/Pai'
-import ContadorV2 from './components/contador/ContadorV2'
+// import ContadorV2 from './components/contador/ContadorV2'
+import DiferenciarPlataforma from './components/DiferenciarPlataforma'
 
 export default function App() {
 
     return (
         <SafeAreaView style={style.App}>
+            <DiferenciarPlataforma />
+            {/* 
             <ContadorV2 />
-
-            {/* <PaiIndireta />
+            <PaiIndireta />
             <PaiDireta />
             <Contator inicial={10} />
             <Botao />
@@ -31,7 +33,8 @@ export default function App() {
             <Primeiro />
             <CompOficial />
             <Comp1 />
-            <Comp2 /> */}
+            <Comp2 /> 
+            */}
         </SafeAreaView>
     )
 }
