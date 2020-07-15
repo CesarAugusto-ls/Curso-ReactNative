@@ -11,14 +11,21 @@ import { SafeAreaView, StyleSheet } from 'react-native'
 // import PaiDireta from './components/direta/Pai'
 // import PaiIndireta from './components/indireta/Pai'
 // import ContadorV2 from './components/contador/ContadorV2'
-import DiferenciarPlataforma from './components/DiferenciarPlataforma'
+// import DiferenciarPlataforma from './components/DiferenciarPlataforma'
+// import ParImpar from './components/ParImpar'
+import Familia from './components/relacao/Familia'
+import Membro from './components/relacao/Membro'
 
 export default function App() {
 
     return (
         <SafeAreaView style={style.App}>
-            <DiferenciarPlataforma />
+            <Familia>
+                <Membro nome="Cesar" sobrenome="Augusto" />
+            </Familia>
             {/* 
+            <ParImpar num={20} />
+            <DiferenciarPlataforma />
             <ContadorV2 />
             <PaiIndireta />
             <PaiDireta />
