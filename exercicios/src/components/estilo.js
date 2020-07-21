@@ -8,6 +8,7 @@ export default StyleSheet.create({
         fontSize: 16
     },
     txtLarge: {
-        fontSize: 24
+        fontSize: 24,
+        textAlign: "center",
     }
 })
