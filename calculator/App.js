@@ -7,6 +7,7 @@ import {
 } from 'react-native';
 
 import Button from './src/components/Button'
+import Display from './src/components/Display'
 
 const style = StyleSheet.create({
   container: {
@@ -20,10 +21,14 @@ const style = StyleSheet.create({
 })
 
 const App = () => {
+
+  const [displayValue, setDisplayValue] = React.useState('0')
+
   return (
     <>
-      <SafeAreaView>
+      <SafeAreaView style={style.container}>
         <View style={style.container}>
+          <Display value={displayValue} />
           <View style={style.buttons}>
             <Button onClick={{}} label="AC" />
             <Button onClick={{}} label="/" />
