@@ -10,6 +10,8 @@ import {
 
 import params from './src/params'
 
+import Field from './src/components/Field'
+
 const App = () => {
   return (
     <>
@@ -19,6 +21,14 @@ const App = () => {
           <Text>
             Tamanho da grade: {params.getRowsAmount()}X{params.getColumnsAmount()}
           </Text>
+
+          <Field />
+          <Field opened />
+          <Field opened nearMines={1} />
+          <Field opened nearMines={2} />
+          <Field opened nearMines={4} />
+          <Field opened nearMines={6} />
+
         </View>
       </SafeAreaView>
     </>
