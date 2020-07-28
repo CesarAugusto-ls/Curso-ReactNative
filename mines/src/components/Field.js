@@ -45,10 +45,12 @@ const Field = (props) => {
 
     let color = null
     if (nearMines > 0) {
-        if (nearMines === 1) color = '#2A28D7'
-        if (nearMines === 2) color = '#2B520F'
-        if (nearMines > 2 && nearMines < 6) color = '#F9060A'
-        if (nearMines >= 6) color = '#F221A9'
+        if (nearMines === 1) color = '#1C21FF'
+        if (nearMines === 2) color = '#14D200'
+        if (nearMines === 3) color = '#FF0013'
+        if (nearMines === 4) color = '#FFBF00'
+        if (nearMines === 5) color = '#FF7F00'
+        if (nearMines >= 6) color = '#A00BFF'
     }
 
     return (
