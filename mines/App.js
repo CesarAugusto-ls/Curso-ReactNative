@@ -2,14 +2,20 @@ import React, { Component } from 'react';
 import {
   SafeAreaView,
   StyleSheet,
-  ScrollView,
   View,
   Text,
-  StatusBar,
+  Alert,
 } from 'react-native';
 
 import params from './src/params'
-import { createMinedBoard } from './src/logics'
+import {
+  createMinedBoard,
+  cloneBoard,
+  openField,
+  hasExplosion,
+  wonGame,
+  showMines,
+} from './src/logics'
 import MineField from './src/components/MineField';
 
 class App extends Component {
@@ -32,7 +38,28 @@ class App extends Component {
 
     return {
       board: createMinedBoard(rows, cols, this.minesAmount()),
+      won: false,
+      lost: false,
     }
+  }
+
+  onOpenField = (row, column) => {
+    const board = cloneBoard(this.state.board)
+    openField(board, row, column)
+
+    const lost = hasExplosion(board)
+    const won = wonGame(board)
+
+    if (lost) {
+      showMines(board)
+      Alert.alert('Perdeu', 'Errrrrrrou')
+    }
+
+    if (won) {
+      Alert.alert('Parabens', 'Voce venceu')
+    }
+
+    this.setState({ board, lost, won })
   }
 
   render() {
@@ -47,7 +74,10 @@ class App extends Component {
             </Text>
 
             <View style={styles.board}>
-              <MineField board={this.state.board} />
+              <MineField
+                board={this.state.board}
+                onOpenField={this.onOpenField}
+              />
             </View>
           </View>
         </SafeAreaView>
