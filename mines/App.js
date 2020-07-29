@@ -15,6 +15,7 @@ import {
   hasExplosion,
   wonGame,
   showMines,
+  invertFlag,
 } from './src/logics'
 import MineField from './src/components/MineField';
 
@@ -62,6 +63,18 @@ class App extends Component {
     this.setState({ board, lost, won })
   }
 
+  onSelectField = (row, column) => {
+    const board = cloneBoard(this.state.board)
+    invertFlag(board, row, column)
+
+    const won = wonGame(board)
+    if (won) {
+      Alert.alert('Parabens', 'Voce venceu')
+    }
+
+    this.setState({ board, won })
+  }
+
   render() {
     return (
       <>
@@ -77,6 +90,7 @@ class App extends Component {
               <MineField
                 board={this.state.board}
                 onOpenField={this.onOpenField}
+                onSelectField={this.onSelectField}
               />
             </View>
           </View>
