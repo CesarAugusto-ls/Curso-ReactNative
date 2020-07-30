@@ -16,8 +16,11 @@ import {
   wonGame,
   showMines,
   invertFlag,
+  flagsUsed,
 } from './src/logics'
+
 import MineField from './src/components/MineField';
+import Header from './src/components/Header'
 
 class App extends Component {
 
@@ -81,10 +84,10 @@ class App extends Component {
         <SafeAreaView style={styles.container}>
           <View style={styles.container}>
 
-            <Text>Iniciando o Mines</Text>
-            <Text>
-              Tamanho da grade: {params.getRowsAmount()}X{params.getColumnsAmount()}
-            </Text>
+            <Header
+              flagsLeft={this.minesAmount() - flagsUsed(this.state.board)}
+              onNewGame={() => this.setState(this.createState())}
+            />
 
             <View style={styles.board}>
               <MineField
