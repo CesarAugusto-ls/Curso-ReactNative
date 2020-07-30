@@ -21,6 +21,7 @@ import {
 
 import MineField from './src/components/MineField';
 import Header from './src/components/Header'
+import LevelSelection from './src/screens/LevelSelection'
 
 class App extends Component {
 
@@ -44,6 +45,7 @@ class App extends Component {
       board: createMinedBoard(rows, cols, this.minesAmount()),
       won: false,
       lost: false,
+      showLevelSelection: false,
     }
   }
 
@@ -56,7 +58,7 @@ class App extends Component {
 
     if (lost) {
       showMines(board)
-      Alert.alert('Perdeu', 'Errrrrrrou')
+      Alert.alert('Perdeu', 'Que Burro!')
     }
 
     if (won) {
@@ -78,15 +80,27 @@ class App extends Component {
     this.setState({ board, won })
   }
 
+  onLevelSelected = (level) => {
+    params.difficultLevel = level
+    this.setState(this.createState())
+  }
+
   render() {
     return (
       <>
         <SafeAreaView style={styles.container}>
           <View style={styles.container}>
 
+            <LevelSelection
+              isVisible={this.state.showLevelSelection}
+              onLevelSelected={this.onLevelSelected}
+              onCancel={() => this.setState({ showLevelSelection: false })}
+            />
+
             <Header
               flagsLeft={this.minesAmount() - flagsUsed(this.state.board)}
               onNewGame={() => this.setState(this.createState())}
+              onFlagPress={() => this.setState({ showLevelSelection: true })}
             />
 
             <View style={styles.board}>
@@ -110,7 +124,7 @@ const styles = StyleSheet.create({
   },
   board: {
     alignItems: "center",
-    backgroundColor: '#AAA'
+    backgroundColor: 'rgba(0,0,0,0.6)',
   },
 });
 
