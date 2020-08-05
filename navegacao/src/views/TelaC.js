@@ -6,7 +6,8 @@ const TelaC = (props) => {
 
     return (
         <TextoCentral corFundo='#9932cd' >
-            Tela C {props.route.params.numero}
+            {/* Tela C {props.route.params.numero} */}
+            Tela C
         </TextoCentral>
     )
 }
