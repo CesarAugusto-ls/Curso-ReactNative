@@ -3,14 +3,16 @@ import { SafeAreaView } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native'
 
 // import Stack from './Stack';
-import Tab from './Tab'
+// import Tab from './Tab'
+import Drawer from './Drawer'
 
 const index = () => {
     return (
         <SafeAreaView style={{ flex: 1 }}>
             <NavigationContainer>
                 {/* <Stack /> */}
-                <Tab />
+                {/* <Tab /> */}
+                <Drawer />
             </NavigationContainer>
         </SafeAreaView>
     )
